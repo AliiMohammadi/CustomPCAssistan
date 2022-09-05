@@ -1,0 +1,10 @@
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\bin\Debug\OneeChanRemake.exe.config
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\bin\Debug\OneeChanRemake.exe
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\bin\Debug\OneeChanRemake.pdb
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.csproj.AssemblyReference.cache
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.csproj.SuggestedBindingRedirects.cache
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.Properties.Resources.resources
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.csproj.GenerateResource.cache
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.csproj.CoreCompileInputs.cache
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.exe
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.pdb

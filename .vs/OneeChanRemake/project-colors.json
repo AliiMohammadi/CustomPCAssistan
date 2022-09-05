@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "19bb6c98-fa18-4805-9b47-f61897854b67": {
+      "ProjectGuid": "19bb6c98-fa18-4805-9b47-f61897854b67",
+      "DisplayName": "OneeChanRemake",
+      "ColorIndex": 0
+    },
+    "705d9243-70db-4e88-bb1c-4b35516a128c": {
+      "ProjectGuid": "705d9243-70db-4e88-bb1c-4b35516a128c",
+      "DisplayName": "Test Console",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
