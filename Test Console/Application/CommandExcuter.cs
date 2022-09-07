@@ -16,26 +16,28 @@ namespace Test_Console
             /// </summary>
             /// <param name="commanname"></param>
             /// <returns>درصورت اجرای موجود بودن دستور صحیح برگردانده میشود</returns>
-            public static bool Excute(string commanname)
+            public static bool Excute(string commanname, Strucures.CommandManager commandManager)
             {
-                if(!Strucures.CommandManager.IsExist(commanname))
+                if(!commandManager.IsExist(commanname))
                     return false;
 
-                Strucures.CommandData commmand = Strucures.CommandManager.GetCommand(commanname);
 
-                switch (commmand.CommandType)
+                Strucures.CommandData commmandData = commandManager.GetCommand(commanname);
+
+                switch (commmandData.CommandType)
                 {
-                    case Strucures.CommandData.CommandTypes.Address:
-
+                    case Strucures.CommandTypes.Address:
+                        //commandManager.UserCommands[commanname].Value;
+                        Console.WriteLine(commandManager.GetUserCommand(commanname).Value);
                         break;
-                    case Strucures.CommandData.CommandTypes.Systematic:
-                        commmand.CommandOperation();
+                    case Strucures.CommandTypes.Systematic:
+                        commandManager.SystematicCommands[commanname].Operation();
                         break;
-                    case Strucures.CommandData.CommandTypes.Applicational:
-                        commmand.CommandOperation();
+                    case Strucures.CommandTypes.Applicational:
+                        commandManager.SystematicCommands[commanname].Operation();
                         break;
-                    case Strucures.CommandData.CommandTypes.Note:
-
+                    case Strucures.CommandTypes.Note:
+                        //commandManager.UserCommands[commanname].Value;
                         break;
                     default:
                         break;

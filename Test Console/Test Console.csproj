@@ -50,6 +50,7 @@
     <Compile Include="Application\CommandExcuter.cs" />
     <Compile Include="Application\Informations.cs" />
     <Compile Include="SaveAndRetrieve Core\JsonSaveData.cs" />
+    <Compile Include="Strucures Core\CommandData.cs" />
     <Compile Include="Strucures Core\CommandManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
