@@ -43,23 +43,22 @@ namespace Test_Console
             /// <returns></returns>
             public CommandData GetCommand(string name)
             {
-                CommandData data = null;
-
                 try
                 {
-                    data = UserCommands[name];
+                    foreach (StabelCommand key in SystematicCommands.Values)
+                    {
+                        if (string.Equals(Melt(key.Name), Melt(name)))
+                            return key;
+                    }
+                    foreach (UserCommand key in UserCommands.Values)
+                    {
+                        if (string.Equals(Melt(key.Name), Melt(name)))
+                            return key;
+                    }
                 }
                 catch { }
 
-                try
-                {
-                    if (data == null)
-                        data = SystematicCommands[name];
-                }
-                catch { }
-
-
-                return data;
+                return null;
             }
             /// <summary>
             /// باز یابی دستوری با توجه به اسم ان از لیست
@@ -68,9 +67,13 @@ namespace Test_Console
             /// <returns></returns>
             public UserCommand GetUserCommand(string name)
             {
-                UserCommand data = null;
-                UserCommands.TryGetValue(name,out data);
-                return data;
+                foreach (UserCommand key in UserCommands.Values)
+                {
+                    if (string.Equals(Melt(key.Name), Melt(name)))
+                        return key;
+                }
+
+                return null;
             }
             /// <summary>
             /// باز یابی دستوری با توجه به اسم ان از لیست
@@ -79,9 +82,13 @@ namespace Test_Console
             /// <returns></returns>
             public StabelCommand GetStabelCommand(string name)
             {
-                StabelCommand data = null;
-                SystematicCommands.TryGetValue(name,out data);
-                return data;
+                foreach (StabelCommand key in SystematicCommands.Values)
+                {
+                    if (string.Equals(Melt(key.Name), Melt(name)))
+                        return key;
+                }
+
+                return null;
             }
                 //اضافه
             /// <summary>
@@ -94,7 +101,7 @@ namespace Test_Console
             {
                 string name = stabelCommand.Name;
                 if (IsExist(name))
-                    throw new InvalidOperationException($"The key '{name}' is alredy exist.");
+                    throw new InvalidOperationException($"The key '{name}' is already exist.");
                 else
                 {
                     StabelCommand newdata = stabelCommand;
@@ -136,6 +143,7 @@ namespace Test_Console
                     return newdata;
                 }
             }
+
             /// <summary>
             /// اضافه کردن دستور جدید 
             /// </summary>
@@ -153,86 +161,73 @@ namespace Test_Console
                     return newdata;
                 }
             }
+
                 //حذف
             /// <summary>
             /// حذف کردن یک دستور از لیست با اسم
             /// </summary>
             /// <param name="name"></param>
             /// <returns>صحیح برگردانده میشود اگر موفق باشد</returns>
-            public bool DeleteCommand(string name)
+            public void DeleteCommand(string name)
             {
-                bool suc = UserCommands.Remove(name);
-
+                UserCommand userCommand = GetUserCommand(name);
+                bool suc = UserCommands.Remove(userCommand.Name);
                 if (!suc)
-                    suc = SystematicCommands.Remove(name);
-
-                return suc;
+                    throw new Exception("Key not found.");
             }
+
                 //بروزرسانی
             /// <summary>
             /// بروز کردن دستور در لیست
             /// </summary>
             /// <param name="name"></param>
             /// <param name="value"></param>
-            /// <returns> مقدار درست درصورت موفقیت</returns>
-            public bool UpdateCommand(CommandData commanddata)
+            public void UpdateCommand(CommandData commanddata)
             {
                 string name = commanddata.Name;
 
                 if (UserCommands.ContainsKey(name))
                 {
-                    UserCommand userCommand = UserCommands[name];
-                    userCommand.Name = commanddata.Name;
-                    userCommand.CommandType = commanddata.CommandType;
-
-                    return true;
+                    UserCommands[name].Name = commanddata.Name;
                 }
                 else if (SystematicCommands.ContainsKey(name))
                 {
-                    StabelCommand stabelCommand = SystematicCommands[name];
-                    stabelCommand.Name = commanddata.Name;
-                    stabelCommand.CommandType = commanddata.CommandType;
-
-                    return true;
+                    SystematicCommands[name].Name = commanddata.Name;
                 }
                 else
-                    return false;
+                    throw new Exception("Key not found.");
             }
             /// <summary>
             /// بروز کردن دستور در لیست
             /// </summary>
             /// <param name="name"></param>
             /// <param name="value"></param>
-            /// <returns> مقدار درست درصورت موفقیت</returns>
-            public bool UpdateCommand(StabelCommand commanddata)
+            public void UpdateCommand(StabelCommand newcommanddata)
             {
-                string name = commanddata.Name;
+                string name = newcommanddata.Name;
 
                 if (SystematicCommands.ContainsKey(name))
                 {
-                    SystematicCommands[name] = commanddata;
-                    return true;
+                    SystematicCommands[name].Operation = newcommanddata.Operation;
                 }
                 else
-                    return false;
+                    throw new Exception("Key not found.");
             }
             /// <summary>
             /// بروز کردن دستور در لیست
             /// </summary>
             /// <param name="name"></param>
             /// <param name="value"></param>
-            /// <returns> مقدار درست درصورت موفقیت</returns>
-            public bool UpdateCommand(UserCommand commanddata)
+            public void UpdateCommand(UserCommand newcommanddata)
             {
-                string name = commanddata.Name;
+                string name = newcommanddata.Name;
 
                 if (UserCommands.ContainsKey(name))
                 {
-                    UserCommands[name] = commanddata;
-                    return true;
+                    UserCommands[name].Value = newcommanddata.Value;
                 }
                 else
-                    return false;
+                    throw new Exception("Key not found.");
             }
 
 
@@ -243,20 +238,47 @@ namespace Test_Console
             /// <returns></returns>
             public bool IsExist(string name)
             {
-                return (UserCommands.ContainsKey(name) || SystematicCommands.ContainsKey(name));
+                foreach (string key in SystematicCommands.Keys)
+                {
+                    if (string.Equals(Melt(key), Melt(name)))
+                        return true;
+                }
+                foreach (string key in UserCommands.Keys)
+                {
+                    if (string.Equals(Melt(key), Melt(name)))
+                        return true;
+                }
+
+                return false;
+            }
+            /// <summary>
+            /// استاندارد کرده یک کلمه 
+            /// کلمه انگلیسی رو به عبارت کوچک تبدیل میکند و فاصله ان را میگید
+            /// </summary>
+            /// <param name="value"></param>
+            /// <returns></returns>
+            public string Melt(string value)
+            {
+                if (string.IsNullOrEmpty(value))
+                    return "";
+
+                string melted = value;
+
+                try
+                {
+                    melted = melted.ToLower();
+                }
+                catch { }
+                try
+                {
+                    melted = melted.Replace(" ", "");
+                }
+                catch { }
+
+                return melted;
             }
         }
     }
 }
 
-//نحوه اضافه کردن دستورات سیستمی یا اپلیکیشنی:
-//به کلاس کنترلر کامند ها بروید
-//یک شعی با نام دستورات سیستمی وجود دارد که به صورت کالکشن هست
-//انجا به لیست اضافه کنید.
-//
-//توضیحات کلاس کامنددیتا:
-//این کلاس اطلاعات یک دستور برنامه هستش که شامل اسم دستور 
-//مقدار ان
-//نوع دستور و یک دلیگیت برای عملیات خاص انجام میشه.
-//دقت داشته باشید که اگر نوع سیسستمی باشه دلیگیت عملیات باید پر بشه.
 
