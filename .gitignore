@@ -1,0 +1,4 @@
+#Every image file not allowed.
+*.png
+*.jpg
+*.bitmap
