@@ -59,6 +59,7 @@
     <Compile Include="Cores\Modules\Strucures Core\CommandData.cs" />
     <Compile Include="Cores\Modules\Strucures Core\CommandManager.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\KeyInput.cs" />
+    <Compile Include="Cores\WindowsUI\FormControl\LogLabelControler.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\TerminalControl.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>

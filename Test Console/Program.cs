@@ -19,8 +19,9 @@ namespace Test_Console.SaveAndRetrieve
     {
         static void Main(string[] args)
         {
+            GetExactCommandInfo();
             //GetSimilarsTest();
-            AddDeleteUpdateTest();
+            //AddDeleteUpdateTest();
             Console.ReadKey();
         }
         
@@ -32,10 +33,13 @@ namespace Test_Console.SaveAndRetrieve
             CommandExcuter.AddCommand("Brother", "Mohammad Mohammadi");
             CommandExcuter.AddCommand("broad", "My sisi");
             CommandExcuter.AddCommand("Bababoy", "My sisi");
+            CommandExcuter.AddCommand("Musics", "musics path folder");
 
             ShowList(CommandExcuter.GetSimilars("b"));
             Console.WriteLine();
             ShowList(CommandExcuter.GetSimilars("my"));
+            Console.WriteLine();
+            ShowList(CommandExcuter.GetSimilars("musis"));
         }
         static void AddDeleteUpdateTest()
         {
@@ -61,6 +65,24 @@ namespace Test_Console.SaveAndRetrieve
 
             ShowList(CommandExcuter.Commandmanager.UserCommands.ToList<KeyValuePair<string, UserCommand>>());
             ShowList(CommandExcuter.Commandmanager.SystematicCommands.ToList<KeyValuePair<string, StabelCommand>>());
+        }
+        static void GetExactCommandInfo()
+        {
+            CommandManager cm = CommandExcuter.Commandmanager;
+
+            cm.AddCommand(new StabelCommand("Shutdown", Shutdown));
+
+            CommandExcuter.AddCommand("MyName", "Ali Mohammadi");
+            CommandExcuter.AddCommand("Brother", "Mohammad Mohammadi");
+            CommandExcuter.AddCommand("broad", "My sisi");
+            CommandExcuter.AddCommand("Bababoy", "My sisi");
+            CommandExcuter.AddCommand("Musics", "musics path folder");
+
+
+            Console.WriteLine("Name: " + cm.GetCommand("myname").Name + " CommandType: " + cm.GetCommand("myname").CommandType.ToString());
+            Console.WriteLine("Name: " + cm.GetCommand("Brother").Name + " CommandType: " + cm.GetCommand("Brother").CommandType.ToString());
+            Console.WriteLine("Name: " + cm.GetCommand("musics").Name + " CommandType: " + cm.GetCommand("musics").CommandType.ToString());
+            Console.WriteLine("Name: " + cm.GetCommand("Shutdown").Name + " CommandType: " + cm.GetCommand("Shutdown").CommandType.ToString());
         }
 
         static void ShowList(List<KeyValuePair<string, UserCommand>> list)

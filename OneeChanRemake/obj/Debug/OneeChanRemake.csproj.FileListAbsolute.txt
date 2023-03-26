@@ -7,8 +7,6 @@ D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRem
 D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.csproj.CoreCompileInputs.cache
 D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.exe
 D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.pdb
-D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\Onee_Chan.MainForm.resources
-D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.UserControls.TerminalPanel.resources
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\bin\Debug\OneeChanRemake.exe.config
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\bin\Debug\OneeChanRemake.exe
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\bin\Debug\OneeChanRemake.pdb
@@ -20,3 +18,5 @@ D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\obj\Debug\OneeChan
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\obj\Debug\OneeChanRemake.exe
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\obj\Debug\OneeChanRemake.pdb
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\obj\Debug\OneeChanRemake.MainForm.resources
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.csproj.AssemblyReference.cache
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.MainForm.resources

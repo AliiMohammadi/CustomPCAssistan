@@ -82,7 +82,9 @@ namespace OneeChanRemake
             DoubleBuffered = true;
             InitializeComponent();
             mainform = this;
+
             TerminalControl.TerminalLine = TerminalLine;
+            LogLabelControler.Loglabel = LogLabel;
         }
 
         void BlurBacGround()

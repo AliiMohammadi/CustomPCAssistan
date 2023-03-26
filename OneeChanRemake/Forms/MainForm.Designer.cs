@@ -39,6 +39,7 @@
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.TerminalLine = new System.Windows.Forms.TextBox();
+            this.LogLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,6 +140,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.LogLabel);
             this.panel1.Controls.Add(this.TerminalLine);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -157,6 +159,17 @@
             this.TerminalLine.TabIndex = 0;
             this.TerminalLine.TextChanged += new System.EventHandler(this.TerminalLine_TextChanged);
             this.TerminalLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TerminalLine_KeyDown);
+            // 
+            // LogLabel
+            // 
+            this.LogLabel.AutoSize = true;
+            this.LogLabel.BackColor = System.Drawing.Color.White;
+            this.LogLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogLabel.ForeColor = System.Drawing.Color.Black;
+            this.LogLabel.Location = new System.Drawing.Point(12, 492);
+            this.LogLabel.Name = "LogLabel";
+            this.LogLabel.Size = new System.Drawing.Size(0, 20);
+            this.LogLabel.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -199,6 +212,7 @@
         public System.Windows.Forms.ToolTip ToolTip;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.TextBox TerminalLine;
+        public System.Windows.Forms.Label LogLabel;
     }
 }
 

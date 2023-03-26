@@ -56,7 +56,10 @@ namespace Test_Console
                             return key;
                     }
                 }
-                catch { }
+                catch 
+                {
+
+                }
 
                 return null;
             }

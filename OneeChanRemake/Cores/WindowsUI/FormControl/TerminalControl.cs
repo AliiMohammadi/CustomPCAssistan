@@ -8,31 +8,60 @@ using OneeChanRemake;
 
 namespace OneeChanRemake.FormControl
 {
+    /// <summary>
+    /// کلاس کنترول کننده ترمینال یا تکست باکس ورودی دستور در صفحه اصلی
+    /// </summary>
     internal class TerminalControl
     {
+        /// <summary>
+        /// شعی خود تکست باکس
+        /// </summary>
         public static TextBox TerminalLine;
+        /// <summary>
+        /// مقدار نوشته خود تکست باکس
+        /// </summary>
+        public static string TerminalLineText
+        {
+            get { return TerminalLine.Text; }
+            set { TerminalLine.Text = value; }
+        }
+        /// <summary>
+        /// طول نوشته در حال حاظر
+        /// </summary>
         public static int Length
         {
             get { return TerminalLine.Text.Length;}
         }
 
+        /// <summary>
+        /// پاک کردن تکست باکس
+        /// </summary>
         public static void Clear()
         {
             TerminalLine.Clear();
         }
-
+        /// <summary>
+        /// اجرا کردن هر دستوری که نوشته شده
+        /// </summary>
         public static void Execute()
         {
             string command = TerminalLine.Text;
 
-            if (!ExecuteCommand(command))
-                Console.WriteLine(@"Error. Command : " + command + " is not exist." );
+            try
+            {
+                ExecuteCommand(command);
+            }
+            catch (Exception ex )
+            {
+                LogLabelControler.PrintError(ex.Message);
+            }
+
             Clear();
         }
 
-        static bool ExecuteCommand(string command)
+        static void ExecuteCommand(string command)
         {
-            return Application.CommandExcuter.Excute(command);
+            Application.CommandExcuter.Excute(command);
         }
     }
 }
