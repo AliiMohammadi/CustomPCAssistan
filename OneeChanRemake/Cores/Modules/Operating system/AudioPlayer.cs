@@ -2,8 +2,9 @@
 using System;
 using System.IO;
 using System.Linq;
-
-public class AudioPlayer
+namespace OneeChanRemake.Operation_System
+{
+    public class AudioPlayer
 {
     /// <summary>
     /// تابع مجاز برای پخش صدا
@@ -23,4 +24,6 @@ public class AudioPlayer
         SoundPlayer sound = new SoundPlayer(audiopath);
         sound.Play();
     }
+}
+
 }

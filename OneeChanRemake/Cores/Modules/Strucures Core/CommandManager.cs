@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Strucures
+namespace OneeChanRemake.Strucures
 {
     /// <summary>
     /// کلاس نگه دارنده لیست دستورات سیستمی و کاربری و عملیات برای انان

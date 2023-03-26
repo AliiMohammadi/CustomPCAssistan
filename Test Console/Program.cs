@@ -19,9 +19,10 @@ namespace Test_Console.SaveAndRetrieve
     {
         static void Main(string[] args)
         {
-            GetExactCommandInfo();
+            //GetExactCommandInfoTest();
             //GetSimilarsTest();
             //AddDeleteUpdateTest();
+            SaveAndRetriveTest();
             Console.ReadKey();
         }
         
@@ -66,7 +67,7 @@ namespace Test_Console.SaveAndRetrieve
             ShowList(CommandExcuter.Commandmanager.UserCommands.ToList<KeyValuePair<string, UserCommand>>());
             ShowList(CommandExcuter.Commandmanager.SystematicCommands.ToList<KeyValuePair<string, StabelCommand>>());
         }
-        static void GetExactCommandInfo()
+        static void GetExactCommandInfoTest()
         {
             CommandManager cm = CommandExcuter.Commandmanager;
 
@@ -83,6 +84,28 @@ namespace Test_Console.SaveAndRetrieve
             Console.WriteLine("Name: " + cm.GetCommand("Brother").Name + " CommandType: " + cm.GetCommand("Brother").CommandType.ToString());
             Console.WriteLine("Name: " + cm.GetCommand("musics").Name + " CommandType: " + cm.GetCommand("musics").CommandType.ToString());
             Console.WriteLine("Name: " + cm.GetCommand("Shutdown").Name + " CommandType: " + cm.GetCommand("Shutdown").CommandType.ToString());
+        }
+        static void SaveAndRetriveTest()
+        {
+            CommandManager cm = CommandExcuter.Commandmanager;
+
+            cm.AddCommand(new StabelCommand("Shutdown", Shutdown));
+
+            CommandExcuter.AddCommand("MyName", "Ali Mohammadi");
+            CommandExcuter.AddCommand("Brother", "Mohammad Mohammadi");
+            CommandExcuter.AddCommand("broad", "My sisi");
+            CommandExcuter.AddCommand("Bababoy", "My sisi");
+            CommandExcuter.AddCommand("Musics", "musics path folder");
+
+            Informations.SaveData();
+
+            Informations.LoadData();
+
+            ShowList(CommandExcuter.GetSimilars("b"));
+            Console.WriteLine();
+            ShowList(CommandExcuter.GetSimilars("my"));
+            Console.WriteLine();
+            ShowList(CommandExcuter.GetSimilars("musis"));
         }
 
         static void ShowList(List<KeyValuePair<string, UserCommand>> list)

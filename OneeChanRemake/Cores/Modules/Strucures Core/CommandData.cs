@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Strucures
+namespace OneeChanRemake.Strucures
     {
         /// <summary>
         /// انواع نوع دستورات

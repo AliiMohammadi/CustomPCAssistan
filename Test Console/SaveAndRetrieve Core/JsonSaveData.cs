@@ -11,22 +11,24 @@ namespace Test_Console
         /// </summary>
         public class JsonSaveData
         {
-            public void SaveData(object value,string path)
+            static JavaScriptSerializer Jss = new JavaScriptSerializer();
+
+            public static void SaveData(object value,string path)
             {
-                File.WriteAllText(path, new JavaScriptSerializer().Serialize(value));
+                File.WriteAllText(path, Jss.Serialize(value));
             }
-            public void AppendData(object value, string path)
+            public static void AppendData(object value, string path)
             {
-                File.AppendAllText(path, new JavaScriptSerializer().Serialize(value));
+                File.AppendAllText(path, Jss.Serialize(value));
             }
-            public T LoadData<T>(string path)
+            public static T LoadData<T>(string path)
             {
                 if (File.Exists(path))
-                    return new JavaScriptSerializer().Deserialize<T>(File.ReadAllText(path));
+                    return Jss.Deserialize<T>(File.ReadAllText(path));
                 else
                     throw new Exception("File not found.");
             }
-            public string ReadFile(string path)
+            public static string ReadFile(string path)
             {
                 return File.ReadAllText(path);
             }

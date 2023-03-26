@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Drawing;
-using Onee_Chan.Classes;
 using OneeChanRemake.FormControl;
 
 namespace OneeChanRemake
@@ -12,14 +10,18 @@ namespace OneeChanRemake
 
         public MainForm()
         {
+            InitializeComponent();
+
             Awake();
-            Application.CommandExcuter.AddCommand("Musics", @"D:\Media\music",Strucures.CommandTypes.Address);
+
+            DoubleBuffered = true;
+
 
         }
 
         private void FormLoad(object sender, EventArgs e)
         {
-            BlurBacGround();
+            Start();
         }
         private void MainFormKeyPress(object sender, KeyPressEventArgs e)
         {
@@ -79,17 +81,27 @@ namespace OneeChanRemake
 
         void Awake ()
         {
-            DoubleBuffered = true;
-            InitializeComponent();
             mainform = this;
-
             TerminalControl.TerminalLine = TerminalLine;
             LogLabelControler.Loglabel = LogLabel;
         }
-
-        void BlurBacGround()
+        void Start()
         {
+            try
+            {
+                //Application.CommandExcuter.AddCommand("Musics", @"D:\Media\music");
+                //Application.CommandExcuter.AddCommand("Games", @"D:\Games");
+                //Application.CommandExcuter.AddCommand("Stronghold", @"D:\Games\Stronghold 2\Stronghold2.exe");
+                //Application.Informations.SaveData();
+                Application.Informations.LoadData();
+            }
+            catch (Exception ex)
+            {
+                LogLabelControler.PrintError(ex.Message);
+            }
+
             BlurMaker.EnableBlur(this);
+            
         }
 
     }

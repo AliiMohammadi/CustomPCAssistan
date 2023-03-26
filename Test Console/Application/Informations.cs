@@ -15,13 +15,13 @@ namespace Test_Console
 
             public static void SaveData()
             {
-                //var DataObject = Strucures.CommandManager.CommandCollections.UserCommands;
+                var DataObject = CommandExcuter.Commandmanager.UserCommands;
 
-                //SaveAndRetrieve.JsonSaveData.SaveData(DataObject, DataFileAdress);
+                SaveAndRetrieve.JsonSaveData.SaveData(DataObject, DataFileAdress);
             }
             public static void LoadData()
             {
-                //Strucures.CommandManager.CommandCollections.UserCommands = SaveAndRetrieve.JsonSaveData.LoadData<Dictionary<string,Strucures.CommandData>>(DataFileAdress);
+                CommandExcuter.Commandmanager.UserCommands = SaveAndRetrieve.JsonSaveData.LoadData<Dictionary<string,Strucures.UserCommand>>(DataFileAdress);
             }
         }
     }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 /// <summary>
 /// کلاس برای حرکت ها از سوی سیستم 
 /// </summary>
-namespace Operating_system
+namespace OneeChanRemake.Operating_system
     {
         public static class OSactions
         {

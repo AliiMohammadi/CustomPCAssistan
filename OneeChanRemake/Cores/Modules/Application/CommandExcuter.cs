@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Strucures;
+using OneeChanRemake.Strucures;
 
-namespace Application
+namespace OneeChanRemake.Application
 {
     internal class CommandExcuter
     {

@@ -2,7 +2,7 @@
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
-namespace Onee_Chan.Classes
+namespace OneeChanRemake.Classes
 {
     public class BitmapFilter
     {
