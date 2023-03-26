@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Test_Console
-{
-    namespace Strucures
+namespace Strucures
     {
         /// <summary>
         /// کلاس نگه دارنده لیست دستورات سیستمی و کاربری و عملیات برای انان
@@ -279,6 +277,5 @@ namespace Test_Console
             }
         }
     }
-}
 
 

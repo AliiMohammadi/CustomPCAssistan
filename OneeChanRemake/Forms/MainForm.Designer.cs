@@ -1,4 +1,4 @@
-﻿namespace Onee_Chan
+﻿namespace OneeChanRemake
 {
     partial class MainForm
     {
@@ -38,7 +38,7 @@
             this.MinimizeBTN = new System.Windows.Forms.Button();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.terminalPanel = new OneeChanRemake.UserControls.TerminalPanel();
+            this.TerminalLine = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,20 +139,24 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.terminalPanel);
+            this.panel1.Controls.Add(this.TerminalLine);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(591, 470);
+            this.panel1.Size = new System.Drawing.Size(591, 521);
             this.panel1.TabIndex = 14;
             // 
-            // terminalPanel
+            // TerminalLine
             // 
-            this.terminalPanel.BackColor = System.Drawing.Color.Transparent;
-            this.terminalPanel.Location = new System.Drawing.Point(0, 58);
-            this.terminalPanel.Name = "terminalPanel";
-            this.terminalPanel.Size = new System.Drawing.Size(588, 344);
-            this.terminalPanel.TabIndex = 0;
+            this.TerminalLine.BackColor = System.Drawing.Color.Black;
+            this.TerminalLine.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TerminalLine.ForeColor = System.Drawing.Color.White;
+            this.TerminalLine.Location = new System.Drawing.Point(12, 71);
+            this.TerminalLine.Name = "TerminalLine";
+            this.TerminalLine.Size = new System.Drawing.Size(567, 38);
+            this.TerminalLine.TabIndex = 0;
+            this.TerminalLine.TextChanged += new System.EventHandler(this.TerminalLine_TextChanged);
+            this.TerminalLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TerminalLine_KeyDown);
             // 
             // MainForm
             // 
@@ -160,7 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(591, 470);
+            this.ClientSize = new System.Drawing.Size(591, 521);
             this.ControlBox = false;
             this.Controls.Add(this.MinimizeBTN);
             this.Controls.Add(this.Info);
@@ -180,6 +184,7 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainFormKeyPress);
             this.Resize += new System.EventHandler(this.MainFormResize);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -193,7 +198,7 @@
         public System.Windows.Forms.Button MinimizeBTN;
         public System.Windows.Forms.ToolTip ToolTip;
         private System.Windows.Forms.Panel panel1;
-        private OneeChanRemake.UserControls.TerminalPanel terminalPanel;
+        public System.Windows.Forms.TextBox TerminalLine;
     }
 }
 

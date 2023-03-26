@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_Console.Application
+namespace Application
 {
     internal class ConfigurationData
     {

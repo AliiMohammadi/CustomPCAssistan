@@ -2,9 +2,7 @@
 using System.IO;
 using System.Web.Script.Serialization;
 
-namespace Test_Console
-{
-    namespace SaveAndRetrieve
+namespace SaveAndRetrieve
     {
         /// <summary>
         /// ذخیره و یا بازیابی اطلاعات با استفاده از تکنولوژی جیسون
@@ -32,4 +30,3 @@ namespace Test_Console
             }
         }
     }
-}

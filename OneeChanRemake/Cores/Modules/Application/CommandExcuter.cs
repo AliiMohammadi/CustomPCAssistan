@@ -4,11 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Test_Console.Strucures;
+using Strucures;
 
-namespace Test_Console
-{
-    namespace Application
+namespace Application
     {
         internal class CommandExcuter
         {
@@ -29,8 +27,8 @@ namespace Test_Console
                 switch (commmandData.CommandType)
                 {
                     case Strucures.CommandTypes.Address:
-                        //commandManager.UserCommands[commanname].Value;
-                        Console.WriteLine(Commandmanager.GetUserCommand(commanname).Value);
+                        string addres = Commandmanager.UserCommands[commanname].Value;
+                        Operating_system.OSactions.OpenPath(addres);
                         break;
                     case Strucures.CommandTypes.Systematic:
                         Commandmanager.SystematicCommands[commanname].Operation();
@@ -122,4 +120,3 @@ namespace Test_Console
             }
         }
     }
-}

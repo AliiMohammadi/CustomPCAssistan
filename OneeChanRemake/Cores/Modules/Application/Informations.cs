@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_Console
-{
-    namespace Application
+namespace Application
     {
         internal class Informations
         {
@@ -25,4 +23,3 @@ namespace Test_Console
             }
         }
     }
-}
