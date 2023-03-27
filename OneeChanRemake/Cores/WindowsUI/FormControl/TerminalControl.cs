@@ -61,7 +61,7 @@ namespace OneeChanRemake.FormControl
 
         static void ExecuteCommand(string command)
         {
-            Application.CommandExcuter.Excute(command);
+            Application.LibraryCommand.Excute(command);
         }
     }
 }

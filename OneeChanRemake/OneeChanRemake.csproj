@@ -52,12 +52,13 @@
     <Compile Include="Cores\Modules\SaveAndRetrieve Core\JsonSaveData.cs" />
     <Compile Include="Cores\WindowsUI\BitmapFilter.cs" />
     <Compile Include="Cores\WindowsUI\BlurMaker.cs" />
-    <Compile Include="Cores\Modules\Application\CommandExcuter.cs" />
+    <Compile Include="Cores\Modules\Application\LibraryCommand.cs" />
     <Compile Include="Cores\Modules\Application\ConfigurationData.cs" />
     <Compile Include="Cores\Modules\SaveAndRetrieve Core\JSonSingleObject\SaveSystem.cs" />
     <Compile Include="Cores\Modules\SaveAndRetrieve Core\JSonSingleObject\SimpleJson.cs" />
     <Compile Include="Cores\Modules\Strucures Core\CommandData.cs" />
     <Compile Include="Cores\Modules\Strucures Core\CommandManager.cs" />
+    <Compile Include="Cores\WindowsUI\FormControl\AppActions.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\KeyInput.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\LogLabelControler.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\TerminalControl.cs" />

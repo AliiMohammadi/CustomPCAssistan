@@ -38,9 +38,19 @@
             this.MinimizeBTN = new System.Windows.Forms.Button();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.TerminalLine = new System.Windows.Forms.TextBox();
             this.LogLabel = new System.Windows.Forms.Label();
+            this.TerminalLine = new System.Windows.Forms.TextBox();
+            this.PanelControl = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.PanelControl.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ExitBTN
@@ -140,6 +150,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.PanelControl);
             this.panel1.Controls.Add(this.LogLabel);
             this.panel1.Controls.Add(this.TerminalLine);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -147,6 +158,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(591, 521);
             this.panel1.TabIndex = 14;
+            // 
+            // LogLabel
+            // 
+            this.LogLabel.AutoSize = true;
+            this.LogLabel.BackColor = System.Drawing.Color.White;
+            this.LogLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogLabel.ForeColor = System.Drawing.Color.Black;
+            this.LogLabel.Location = new System.Drawing.Point(12, 492);
+            this.LogLabel.Name = "LogLabel";
+            this.LogLabel.Size = new System.Drawing.Size(0, 20);
+            this.LogLabel.TabIndex = 1;
             // 
             // TerminalLine
             // 
@@ -160,16 +182,83 @@
             this.TerminalLine.TextChanged += new System.EventHandler(this.TerminalLine_TextChanged);
             this.TerminalLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TerminalLine_KeyDown);
             // 
-            // LogLabel
+            // PanelControl
             // 
-            this.LogLabel.AutoSize = true;
-            this.LogLabel.BackColor = System.Drawing.Color.White;
-            this.LogLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogLabel.ForeColor = System.Drawing.Color.Black;
-            this.LogLabel.Location = new System.Drawing.Point(12, 492);
-            this.LogLabel.Name = "LogLabel";
-            this.LogLabel.Size = new System.Drawing.Size(0, 20);
-            this.LogLabel.TabIndex = 1;
+            this.PanelControl.Controls.Add(this.tabPage1);
+            this.PanelControl.Controls.Add(this.tabPage2);
+            this.PanelControl.Controls.Add(this.tabPage3);
+            this.PanelControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PanelControl.ItemSize = new System.Drawing.Size(60, 30);
+            this.PanelControl.Location = new System.Drawing.Point(12, 115);
+            this.PanelControl.Name = "PanelControl";
+            this.PanelControl.SelectedIndex = 0;
+            this.PanelControl.Size = new System.Drawing.Size(567, 374);
+            this.PanelControl.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(559, 336);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Recents";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(559, 336);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Add";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(559, 336);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Book";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(451, 32);
+            this.textBox1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 112);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(451, 32);
+            this.textBox2.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(463, 41);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 32);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(385, 247);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(143, 55);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -198,6 +287,9 @@
             this.Resize += new System.EventHandler(this.MainFormResize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.PanelControl.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -213,6 +305,14 @@
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.TextBox TerminalLine;
         public System.Windows.Forms.Label LogLabel;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabControl PanelControl;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

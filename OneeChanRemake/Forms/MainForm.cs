@@ -29,11 +29,11 @@ namespace OneeChanRemake
         }
         private void AddClick(object sender, EventArgs e)
         {
-
+            
         }
         private void Exitlick(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            AppActions.CloseApp();
         }
         private void ListClick(object sender, EventArgs e)
         {
@@ -41,11 +41,11 @@ namespace OneeChanRemake
         }
         private void MuteClick(object sender, EventArgs e)
         {
-
+            AppActions.Mute();
         }
         private void MinimizeClick(object sender, EventArgs e)
         {
-
+            AppActions.MinimizeWindow();
         }
         private void InfoClick(object sender, EventArgs e)
         {
@@ -84,6 +84,7 @@ namespace OneeChanRemake
             mainform = this;
             TerminalControl.TerminalLine = TerminalLine;
             LogLabelControler.Loglabel = LogLabel;
+
         }
         void Start()
         {
@@ -93,6 +94,7 @@ namespace OneeChanRemake
                 //Application.CommandExcuter.AddCommand("Games", @"D:\Games");
                 //Application.CommandExcuter.AddCommand("Stronghold", @"D:\Games\Stronghold 2\Stronghold2.exe");
                 //Application.Informations.SaveData();
+                AppActions.SetDefaultCommands();
                 Application.Informations.LoadData();
             }
             catch (Exception ex)
@@ -103,6 +105,9 @@ namespace OneeChanRemake
             BlurMaker.EnableBlur(this);
             
         }
+        void AddSystematicCommands()
+        {
 
+        }
     }
 }

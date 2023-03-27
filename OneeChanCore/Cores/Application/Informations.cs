@@ -28,11 +28,6 @@ namespace OneeChanRemake.Application
                 throw new Exception("Failed to connect to data file: " + ex.Message);
             }
         }
-        public static void DeleteAllData()
-        {
-            Operation_System.OSactions.DeletePath(DataFileAdress);
-            LoadData();
-        }
     }
 }
 

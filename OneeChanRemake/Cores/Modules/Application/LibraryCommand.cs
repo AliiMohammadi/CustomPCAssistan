@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OneeChanRemake.Strucures;
+using OneeChanRemake;
 
 namespace OneeChanRemake.Application
 {
-    internal class CommandExcuter
+    internal class LibraryCommand
     {
         public static CommandManager Commandmanager = new CommandManager();
 
@@ -29,17 +30,19 @@ namespace OneeChanRemake.Application
 
             try
             {
+                string foundedname = commmandData.Name;
+
                 switch (commmandData.CommandType)
                 {
                     case Strucures.CommandTypes.Address:
-                        string addres = Commandmanager.UserCommands[commmandData.Name].Value;
-                        Operating_system.OSactions.OpenPath(addres);
+                        string addres = Commandmanager.UserCommands[foundedname].Value;
+                        Operation_System.OSactions.OpenPath(addres);
                         break;
                     case Strucures.CommandTypes.Systematic:
-                        Commandmanager.SystematicCommands[commanname].Operation();
+                        Commandmanager.SystematicCommands[foundedname].Operation();
                         break;
                     case Strucures.CommandTypes.Applicational:
-                        Commandmanager.SystematicCommands[commanname].Operation();
+                        Commandmanager.SystematicCommands[foundedname].Operation();
                         break;
                     case Strucures.CommandTypes.Note:
                         //commandManager.UserCommands[commanname].Value;
@@ -51,7 +54,7 @@ namespace OneeChanRemake.Application
             catch (Exception ex)
             {
 
-                throw new Exception("Somthing went wrong. " + ex.Message);
+                throw new Exception("Execution failed. " + ex.Message);
             }
         }
             
@@ -62,6 +65,10 @@ namespace OneeChanRemake.Application
         public static void AddCommand(string name, string value, CommandTypes type)
         {
             Commandmanager.AddCommand(new UserCommand(name, value, type));
+        }
+        public static void AddCommand(string name, Action function, CommandTypes type)
+        {
+             Commandmanager.AddCommand(new StabelCommand(name, function,type));
         }
 
         public static void DeleteCommand(string name)
@@ -128,6 +135,8 @@ namespace OneeChanRemake.Application
         /// <summary>
         /// استاندارد کرده یک کلمه 
         /// کلمه انگلیسی رو به عبارت کوچک تبدیل میکند و فاصله ان را میگید
+        /// مثال:
+        /// Melt("Musics On The FOLDER") = "musicsonthefolder"
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
