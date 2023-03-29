@@ -56,11 +56,31 @@ namespace OneeChanRemake.FormControl
                 LogLabelControler.PrintError(ex.Message);
             }
 
+            
             Clear();
         }
+        public static void KeyPressAction(KeyEventArgs e)
+        {
+
+            Keys key = e.KeyCode;
+
+            if (key == Keys.Enter)
+            {
+                AutoCompleteControler.ExecuteSelectedItem();//اینجا اگه ایتمی انتخواب شده باشه رو اجرا میکنه و خط بعدی اجرا نمیشه.
+
+                if (Length > 0) //این خط اجرا نمیشه اگه خط بالایی اجرا شده باشه
+                    Execute();
+            }
+            else if (key == Keys.Escape)
+            {
+                Clear();
+            }
+        }
+
 
         static void ExecuteCommand(string command)
         {
+            LogLabelControler.Clear();
             Application.LibraryCommand.Excute(command);
         }
     }

@@ -18,5 +18,6 @@ D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\obj\Debug\OneeChan
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\obj\Debug\OneeChanRemake.exe
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\obj\Debug\OneeChanRemake.pdb
 D:\Developing\Oni-chan\Remake\CustomPCAssistan\OneeChanRemake\obj\Debug\OneeChanRemake.MainForm.resources
-D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.csproj.AssemblyReference.cache
 D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.MainForm.resources
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.csproj.AssemblyReference.cache
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanRemake\obj\Debug\OneeChanRemake.Forms.AutoCompletePanelUserControl.resources

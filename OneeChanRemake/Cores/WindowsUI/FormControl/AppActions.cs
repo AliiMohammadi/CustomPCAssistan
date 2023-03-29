@@ -87,5 +87,31 @@ namespace OneeChanRemake.FormControl
         {
             Operation_System.OSactions.OpenOrCloseDVDRom();
         }
+
+        public static List<Strucures.CommandData> SearchCommand(string commandname)
+        {
+            List < Strucures.CommandData > list = new List<Strucures.CommandData>();
+
+            if (string.IsNullOrWhiteSpace(commandname))
+            {
+                Dictionary<string, Strucures.StabelCommand> collection1 = Application.LibraryCommand.Commandmanager.SystematicCommands;
+                Dictionary<string, Strucures.UserCommand> collection2 = Application.LibraryCommand.Commandmanager.UserCommands;
+
+                foreach (var item in collection1)
+                {
+                    list.Add(item.Value);
+                }
+                foreach (var item in collection2)
+                {
+                    list.Add(item.Value);
+                }
+
+                return list;
+            }
+            else
+            {
+                return Application.LibraryCommand.FindSimilars(commandname);
+            }
+        }
     }
 }

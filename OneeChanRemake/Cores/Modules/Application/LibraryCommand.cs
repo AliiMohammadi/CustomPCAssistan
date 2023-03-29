@@ -96,7 +96,7 @@ namespace OneeChanRemake.Application
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static List<CommandData> GetSimilars(string name)
+        public static List<CommandData> FindSimilars(string name)
         {
             List<CommandData> newlist = new List<CommandData>();
 
@@ -131,6 +131,29 @@ namespace OneeChanRemake.Application
 
             return newlist;
         }
+        public static List<UserCommand> FindUserCommandSimilars(string name)
+        {
+            List<UserCommand> newlist = new List<UserCommand>();
+
+            if (string.IsNullOrEmpty(name))
+                return newlist;
+
+            Dictionary<string, UserCommand> collection = Commandmanager.UserCommands;
+
+            foreach (UserCommand value in collection.Values)
+            {
+                if (!string.IsNullOrEmpty(value.Name))
+                {
+                    string word = Melt(value.Name);
+                    bool Compair = word.StartsWith(Melt(name));
+
+                    if (Compair)
+                        newlist.Add(value);
+                }
+            }
+
+            return newlist;
+        }
 
         /// <summary>
         /// استاندارد کرده یک کلمه 
@@ -140,7 +163,7 @@ namespace OneeChanRemake.Application
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        static string Melt(string value)
+        public static string Melt(string value)
         {
             return Commandmanager.Melt(value);
         }

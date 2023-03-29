@@ -21,10 +21,14 @@ namespace OneeChanRemake.Application
         {
             try
             {
-                LibraryCommand.Commandmanager.UserCommands = SaveAndRetrieve.JsonSaveData.LoadData<Dictionary<string,Strucures.UserCommand>>(DataFileAdress);
+                if(System.IO.File.Exists(DataFileAdress))
+                    LibraryCommand.Commandmanager.UserCommands = SaveAndRetrieve.JsonSaveData.LoadData<Dictionary<string,Strucures.UserCommand>>(DataFileAdress);
+                else
+                    LibraryCommand.Commandmanager.UserCommands.Clear();
             }
             catch (Exception ex)
             {
+                LibraryCommand.Commandmanager.UserCommands.Clear();
                 throw new Exception("Failed to connect to data file: " + ex.Message);
             }
         }

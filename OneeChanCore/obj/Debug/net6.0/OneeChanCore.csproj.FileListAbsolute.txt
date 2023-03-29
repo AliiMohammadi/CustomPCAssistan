@@ -1,0 +1,5 @@
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanCore\obj\Debug\net6.0\OneeChanCore.csproj.AssemblyReference.cache
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanCore\obj\Debug\net6.0\OneeChanCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanCore\obj\Debug\net6.0\OneeChanCore.AssemblyInfoInputs.cache
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanCore\obj\Debug\net6.0\OneeChanCore.AssemblyInfo.cs
+D:\Developing\Application Projects\Oni-chan\Oneechan Remake\Projects\OneeChanRemake\OneeChanCore\obj\Debug\net6.0\OneeChanCore.csproj.CoreCompileInputs.cache

@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cores\Log.cs" />
     <Compile Include="Cores\Modules\Application\Informations.cs" />
     <Compile Include="Cores\Modules\SaveAndRetrieve Core\JsonSaveData.cs" />
     <Compile Include="Cores\WindowsUI\BitmapFilter.cs" />
@@ -59,9 +60,17 @@
     <Compile Include="Cores\Modules\Strucures Core\CommandData.cs" />
     <Compile Include="Cores\Modules\Strucures Core\CommandManager.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\AppActions.cs" />
+    <Compile Include="Cores\WindowsUI\FormControl\AutoCompleteControler.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\KeyInput.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\LogLabelControler.cs" />
+    <Compile Include="Cores\WindowsUI\FormControl\PanelControlControler.cs" />
     <Compile Include="Cores\WindowsUI\FormControl\TerminalControl.cs" />
+    <Compile Include="User Controls\AutoCompleteUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\AutoCompleteUserControl.Designer.cs">
+      <DependentUpon>AutoCompleteUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +93,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="User Controls\AutoCompleteUserControl.resx">
+      <DependentUpon>AutoCompleteUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,8 +121,6 @@
     <Content Include="Resources\UnMute.png" />
     <Content Include="Resources\x.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
