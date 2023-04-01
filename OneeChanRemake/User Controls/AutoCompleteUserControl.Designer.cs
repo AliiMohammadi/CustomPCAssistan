@@ -58,7 +58,6 @@
             this.Controls.Add(this.AutoCompleteListBox);
             this.Name = "AutoCompletePanelUserControl";
             this.Size = new System.Drawing.Size(195, 270);
-            this.Load += new System.EventHandler(this.AutoCompletePanelUserControl_Load);
             this.LocationChanged += new System.EventHandler(this.AutoCompletePanelUserControl_LocationChanged);
             this.ResumeLayout(false);
 

@@ -10,6 +10,7 @@ namespace OneeChanRemake.FormControl
 {
     /// <summary>
     /// کلاس کنترول کننده نوشته لوگ پایین صفحه اصلی
+    /// یه نوشته ای مخفی پایین پنجره برنامه وجود دارد که اگه خطایی در اجرا برنامه پیش بیاد, داخل اون یه نوشته قرمزی با پیام ظاهر میشه
     /// </summary>
     internal class LogLabelControler
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 
@@ -33,36 +34,49 @@ namespace OneeChanRemake.Strucures
         {
             get { return (uint)(UserCommands.Count + SystematicCommands.Count); }
         }
-            //بازیابی
+        //بازیابی
         /// <summary>
         /// باز یابی  اطلاعات دستوری با توجه به اسم ان از لیست
         /// اسم ذوب میشود و هر حالتی باشد از داخل لیست مشابه پیدا میشود.
         /// اسم کامل مورد قبول است اما به هر فرمی
         ///مثال:
         /// => CommandlistsName: (Amir , amir ali , Amin , Ali , Mahdi)
-        /// => GetSimilars("amir") = (Amir و اطلاعات ان)
+        /// => GetCommand("amir") = (Amir و اطلاعات ان)
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
         public CommandData GetCommand(string name)
+        {
+            try
             {
-                try
-                {
-                    foreach (StabelCommand key in SystematicCommands.Values)
-                    {
-                        if (string.Equals(Melt(key.Name), Melt(name)))
-                            return key;
-                    }
-                    foreach (UserCommand key in UserCommands.Values)
-                    {
-                        if (string.Equals(Melt(key.Name), Melt(name)))
-                            return key;
-                    }
-                }
-                catch { }
+                ////چک کردن دستورات کاربری
+                UserCommand foundedinusercommands = GetUserCommand(name);
 
-                return null;
+                if(foundedinusercommands!= null)
+                    return foundedinusercommands; 
+
+                StabelCommand foundedinstablecommands = GetStabelCommand(name);
+                if (foundedinstablecommands != null)
+                    return foundedinstablecommands;
+
+                //foreach (UserCommand key in UserCommands.Values)
+                //{
+                //    if (string.Equals(Melt(key.Name), Melt(name)))
+                //        return key;
+                //}
+                ////چک کردن دستورات سیستمی
+                
+
+                //foreach (StabelCommand key in SystematicCommands.Values)
+                //{
+                //    if (string.Equals(Melt(key.Name), Melt(name)))
+                //        return key;
+                //}
             }
+            catch { }
+
+            return null;
+        }
         /// <summary>
         /// باز یابی دستوری با توجه به اسم ان از لیست
         /// </summary>
@@ -70,6 +84,18 @@ namespace OneeChanRemake.Strucures
         /// <returns></returns>
         public UserCommand GetUserCommand(string name)
         {
+            if (string.IsNullOrEmpty(name))
+                return null;
+
+            try
+            {
+                UserCommand key = UserCommands[name];
+                if (key != null)
+                    return key;
+            }
+            catch
+            { }
+
             foreach (UserCommand key in UserCommands.Values)
             {
                 if (string.Equals(Melt(key.Name), Melt(name)))
@@ -85,6 +111,18 @@ namespace OneeChanRemake.Strucures
         /// <returns></returns>
         public StabelCommand GetStabelCommand(string name)
         {
+            if (string.IsNullOrEmpty(name))
+                return null;
+
+            try
+            {
+                StabelCommand key = SystematicCommands[name];
+                if (key != null)
+                    return key;
+            }
+            catch
+            { }
+
             foreach (StabelCommand key in SystematicCommands.Values)
             {
                 if (string.Equals(Melt(key.Name), Melt(name)))
@@ -103,6 +141,10 @@ namespace OneeChanRemake.Strucures
         public void AddCommand(StabelCommand stabelCommand)
         {
             string name = stabelCommand.Name;
+
+            if(string.IsNullOrEmpty(name))
+                throw new InvalidOperationException("The key should not be empty.");
+            else
             if (IsExist(name))
                 throw new InvalidOperationException($"The key '{name}' is already exist.");
             else
@@ -120,6 +162,9 @@ namespace OneeChanRemake.Strucures
         public void AddCommand(UserCommand userCommand)
         {
             string name = userCommand.Name;
+            if (string.IsNullOrEmpty(name))
+                throw new InvalidOperationException("The key should not be empty.");
+            else
             if (IsExist(name))
                 throw new InvalidOperationException($"The key '{name}' is alredy exist.");
             else
@@ -137,8 +182,11 @@ namespace OneeChanRemake.Strucures
         /// <returns></returns>
         public StabelCommand AddCommand(string name,Action operation,CommandTypes commandType)
         {
+            if (string.IsNullOrEmpty(name))
+                throw new InvalidOperationException("The key should not be empty.");
+            else
             if (IsExist(name))
-                throw new InvalidOperationException($"The key {name} is alredy exist.");
+                throw new InvalidOperationException($"The key '{name}' is alredy exist.");
             else
             {
                 StabelCommand newdata = new StabelCommand(name, operation , commandType);
@@ -155,8 +203,11 @@ namespace OneeChanRemake.Strucures
         /// <returns></returns>
         public UserCommand AddCommand(string name, string value, CommandTypes commandType)
         {
+            if (string.IsNullOrEmpty(name))
+                throw new InvalidOperationException("The key should not be empty.");
+            else
             if (IsExist(name))
-                throw new InvalidOperationException($"The key {name} is alredy exist.");
+                throw new InvalidOperationException($"The key '{name}' is alredy exist.");
             else
             {
                 UserCommand newdata = new UserCommand(name, value, commandType);
@@ -173,10 +224,16 @@ namespace OneeChanRemake.Strucures
         /// <returns>صحیح برگردانده میشود اگر موفق باشد</returns>
         public void DeleteCommand(string name)
         {
-            UserCommand userCommand = GetUserCommand(name);
-            bool suc = UserCommands.Remove(userCommand.Name);
-            if (!suc)
-                throw new Exception("Key not found.");
+            if (string.IsNullOrEmpty(name))
+                throw new InvalidOperationException("The name should not be empty.");
+            else
+            {
+                UserCommand userCommand = GetUserCommand(name);
+                bool suc = UserCommands.Remove(userCommand.Name);
+                if (!suc)
+                    throw new Exception("Key not found.");
+            }
+
         }
 
             //بروزرسانی
@@ -233,7 +290,6 @@ namespace OneeChanRemake.Strucures
                 throw new Exception("Key not found.");
         }
 
-
         /// <summary>
         /// برسی میکند که ایا اسم داخل لیست مجود دارد یا خیر
         /// </summary>
@@ -241,18 +297,7 @@ namespace OneeChanRemake.Strucures
         /// <returns></returns>
         public bool IsExist(string name)
         {
-            foreach (string key in SystematicCommands.Keys)
-            {
-                if (string.Equals(Melt(key), Melt(name)))
-                    return true;
-            }
-            foreach (string key in UserCommands.Keys)
-            {
-                if (string.Equals(Melt(key), Melt(name)))
-                    return true;
-            }
-
-            return false;
+            return (GetCommand(name) != null);
         }
         /// <summary>
         /// استاندارد کرده یک کلمه 
@@ -265,22 +310,9 @@ namespace OneeChanRemake.Strucures
         public string Melt(string value)
         {
             if (string.IsNullOrEmpty(value))
-                return "";
+                return value;
 
-            string melted = value;
-
-            try
-            {
-                melted = melted.ToLower();
-            }
-            catch { }
-            try
-            {
-                melted = melted.Replace(" ", "");
-            }
-            catch { }
-
-            return melted;
+            return value.ToLower().Replace(" ", "");
         }
     }
 }

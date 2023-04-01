@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OneeChanRemake.FormControl
+namespace OneeChanRemake
 {
     /// <summary>
     /// کلاس مربوط به دستورات پیش فرض یا مربوط به برنامه
@@ -16,6 +16,10 @@ namespace OneeChanRemake.FormControl
     /// </summary>
     internal class AppActions
     {
+        /// <summary>
+        /// دستورات سیستمی رو به لیست دستورات اضافه میکنه.
+        /// معمولا دستورات اپلیکیشن و سیستمی رو اضافه میکنه 
+        /// </summary>
         public static void SetDefaultCommands()
         {
 
@@ -34,14 +38,47 @@ namespace OneeChanRemake.FormControl
             LibraryCommand.AddCommand("ForceDVDrom", ForceDVDrom, Strucures.CommandTypes.Systematic);
         }
 
-        static void OpenCommandsPanel()
+        //دستورات سیستمی
+        private static void ShutdownPC()
+        {
+            DialogResult res = MessageBox.Show("Are you sure want to turn off your Computer?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+                Operation_System.OSactions.ShutDown();
+        }
+        private static void RestartPC()
+        {
+            DialogResult res = MessageBox.Show("Are you sure want to restart your Computer?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+                Operation_System.OSactions.Restart();
+        }
+        private static void LockPC()
+        {
+            Operation_System.OSactions.LockWindows();
+        }
+        private static void SleepPC()
+        {
+            Operation_System.OSactions.Sleep();
+
+        }
+        private static void ForceDVDrom()
+        {
+            Operation_System.OSactions.OpenOrCloseDVDRom();
+        }
+
+        public static void OpenRecentsPanel()
         {
 
         }
-        static void OpenAddPanel()
+        public static void OpenCommandsPanel()
         {
 
         }
+        public static void OpenAddPanel()
+        {
+
+        }
+
+
         public static void CloseApp()
         {
             System.Windows.Forms.Application.Exit();
@@ -61,33 +98,12 @@ namespace OneeChanRemake.FormControl
             MainForm.mainform.WindowState = FormWindowState.Minimized;
         }
 
-        public static void ShutdownPC()
-        {
-            DialogResult res = MessageBox.Show("Are you sure want to turn off your Computer?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
-                Operation_System.OSactions.ShutDown();
-        }
-        public static void RestartPC()
-        {
-            DialogResult res = MessageBox.Show("Are you sure want to restart your Computer?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
-                Operation_System.OSactions.Restart();
-        }
-        public static void LockPC()
-        {
-            Operation_System.OSactions.LockWindows();
-
-        }
-        public static void SleepPC()
-        {
-            Operation_System.OSactions.Sleep();
-
-        }
-        public static void ForceDVDrom()
-        {
-            Operation_System.OSactions.OpenOrCloseDVDRom();
-        }
-
+        /// <summary>
+        /// جستجوی دستور فقط از نوع دستورات کاربر
+        /// دستورات نوع سیستمی جستجو نمیشود.
+        /// </summary>
+        /// <param name="commandname"></param>
+        /// <returns></returns>
         public static List<Strucures.CommandData> SearchCommand(string commandname)
         {
             List < Strucures.CommandData > list = new List<Strucures.CommandData>();

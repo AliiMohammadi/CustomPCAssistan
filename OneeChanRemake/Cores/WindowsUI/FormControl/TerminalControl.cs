@@ -59,7 +59,12 @@ namespace OneeChanRemake.FormControl
             
             Clear();
         }
-        public static void KeyPressAction(KeyEventArgs e)
+        /// <summary>
+        /// زمانی که کاربر کلیدی جدیدی وارد میکند به ترمینال, در این تابع تحلیل میشه 
+        /// مثلا اگه کاربر اینتر بزنه چیکار کنه و غیره
+        /// </summary>
+        /// <param name="e"></param>
+        public static void KeyEntry(KeyEventArgs e)
         {
 
             Keys key = e.KeyCode;

@@ -156,15 +156,6 @@ namespace OneeChanRemake.Operation_System
             }
         }
 
-        public static void DiableNetWork()
-        {
-            Process.Start("ipconfig", "/release");
-        }
-        public static void EnableNetWork()
-        {
-            Process.Start("ipconfig", "/renew");
-        }
-
         static void StartProcess(ProcessStartInfo PSI)
         {
             PSI.CreateNoWindow = true;

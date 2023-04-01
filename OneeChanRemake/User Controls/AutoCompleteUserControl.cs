@@ -33,16 +33,10 @@ namespace OneeChanRemake.Forms
             TerminalControl.TerminalLine.Focus();
             TerminalControl.TerminalLine.Select(TerminalControl.Length, TerminalControl.Length );
         }
-
-        private void AutoCompletePanelUserControl_Load(object sender, EventArgs e)
-        {
-
-        }
         private void AutoCompletePanelUserControl_LocationChanged(object sender, EventArgs e)
         {
             if(Initiallocation.IsEmpty)
                 Initiallocation = Location;
-
         }
     }
 }

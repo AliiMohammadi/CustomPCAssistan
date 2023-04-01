@@ -36,7 +36,10 @@
             this.AddBTN = new System.Windows.Forms.Button();
             this.MinimizeBTN = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PanelControl = new System.Windows.Forms.TabControl();
+            this.autoCompletePanel = new OneeChanRemake.Forms.AutoCompletePanelUserControl();
+            this.LogLabel = new System.Windows.Forms.Label();
+            this.TerminalLine = new System.Windows.Forms.TextBox();
+            this.PaperPanel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,18 +49,15 @@
             this.NewNameCommand = new System.Windows.Forms.TextBox();
             this.AdressTextBox = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.CountCommandLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DeleteAllBTN = new System.Windows.Forms.Button();
             this.SearchNameTextBox = new System.Windows.Forms.TextBox();
             this.BookCommandListBox = new System.Windows.Forms.ListBox();
-            this.PreviewAddressTextbox = new System.Windows.Forms.TextBox();
             this.DeleteCommandBTN = new System.Windows.Forms.Button();
-            this.LogLabel = new System.Windows.Forms.Label();
-            this.TerminalLine = new System.Windows.Forms.TextBox();
-            this.autoCompletePanel = new OneeChanRemake.Forms.AutoCompletePanelUserControl();
+            this.CountCommandLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PreviewAddressTextbox = new System.Windows.Forms.TextBox();
+            this.DeleteAllBTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.PanelControl.SuspendLayout();
+            this.PaperPanel.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +91,6 @@
             this.Info.Size = new System.Drawing.Size(38, 40);
             this.Info.TabIndex = 9;
             this.Info.UseVisualStyleBackColor = false;
-            this.Info.Click += new System.EventHandler(this.InfoClick);
             // 
             // MuteBTN
             // 
@@ -117,7 +116,6 @@
             this.ListBTN.Size = new System.Drawing.Size(38, 40);
             this.ListBTN.TabIndex = 6;
             this.ListBTN.UseVisualStyleBackColor = false;
-            this.ListBTN.Click += new System.EventHandler(this.ListClick);
             // 
             // AddBTN
             // 
@@ -130,7 +128,6 @@
             this.AddBTN.Size = new System.Drawing.Size(38, 40);
             this.AddBTN.TabIndex = 4;
             this.AddBTN.UseVisualStyleBackColor = false;
-            this.AddBTN.Click += new System.EventHandler(this.AddClick);
             // 
             // MinimizeBTN
             // 
@@ -154,36 +151,74 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.autoCompletePanel);
-            this.panel1.Controls.Add(this.PanelControl);
             this.panel1.Controls.Add(this.LogLabel);
             this.panel1.Controls.Add(this.TerminalLine);
+            this.panel1.Controls.Add(this.PaperPanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(591, 521);
+            this.panel1.Size = new System.Drawing.Size(591, 406);
             this.panel1.TabIndex = 14;
             // 
-            // PanelControl
+            // autoCompletePanel
             // 
-            this.PanelControl.Controls.Add(this.tabPage1);
-            this.PanelControl.Controls.Add(this.tabPage2);
-            this.PanelControl.Controls.Add(this.tabPage3);
-            this.PanelControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelControl.ItemSize = new System.Drawing.Size(60, 30);
-            this.PanelControl.Location = new System.Drawing.Point(12, 115);
-            this.PanelControl.Name = "PanelControl";
-            this.PanelControl.SelectedIndex = 0;
-            this.PanelControl.Size = new System.Drawing.Size(567, 374);
-            this.PanelControl.TabIndex = 2;
-            this.PanelControl.SelectedIndexChanged += new System.EventHandler(this.PanelControl_SelectedIndexChanged);
-            this.PanelControl.ChangeUICues += new System.Windows.Forms.UICuesEventHandler(this.PanelControl_ChangeUICues);
+            this.autoCompletePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.autoCompletePanel.BackColor = System.Drawing.Color.Transparent;
+            this.autoCompletePanel.Location = new System.Drawing.Point(12, 82);
+            this.autoCompletePanel.Name = "autoCompletePanel";
+            this.autoCompletePanel.Size = new System.Drawing.Size(194, 270);
+            this.autoCompletePanel.TabIndex = 8;
+            // 
+            // LogLabel
+            // 
+            this.LogLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogLabel.AutoSize = true;
+            this.LogLabel.BackColor = System.Drawing.Color.White;
+            this.LogLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogLabel.ForeColor = System.Drawing.Color.Black;
+            this.LogLabel.Location = new System.Drawing.Point(12, 377);
+            this.LogLabel.Name = "LogLabel";
+            this.LogLabel.Size = new System.Drawing.Size(0, 20);
+            this.LogLabel.TabIndex = 1;
+            // 
+            // TerminalLine
+            // 
+            this.TerminalLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TerminalLine.BackColor = System.Drawing.Color.Black;
+            this.TerminalLine.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TerminalLine.ForeColor = System.Drawing.Color.White;
+            this.TerminalLine.Location = new System.Drawing.Point(12, 71);
+            this.TerminalLine.Name = "TerminalLine";
+            this.TerminalLine.Size = new System.Drawing.Size(567, 38);
+            this.TerminalLine.TabIndex = 0;
+            this.TerminalLine.TextChanged += new System.EventHandler(this.TerminalLine_TextChanged);
+            this.TerminalLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TerminalLine_KeyDown);
+            // 
+            // PaperPanel
+            // 
+            this.PaperPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PaperPanel.Controls.Add(this.tabPage1);
+            this.PaperPanel.Controls.Add(this.tabPage2);
+            this.PaperPanel.Controls.Add(this.tabPage3);
+            this.PaperPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaperPanel.ItemSize = new System.Drawing.Size(60, 30);
+            this.PaperPanel.Location = new System.Drawing.Point(12, 115);
+            this.PaperPanel.Name = "PaperPanel";
+            this.PaperPanel.SelectedIndex = 0;
+            this.PaperPanel.Size = new System.Drawing.Size(567, 259);
+            this.PaperPanel.TabIndex = 2;
+            this.PaperPanel.SelectedIndexChanged += new System.EventHandler(this.PanelControl_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(559, 336);
+            this.tabPage1.Size = new System.Drawing.Size(559, 221);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Recents";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -199,7 +234,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(559, 336);
+            this.tabPage2.Size = new System.Drawing.Size(559, 244);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Add";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -224,7 +259,9 @@
             // 
             // AddNewBTN
             // 
-            this.AddNewBTN.Location = new System.Drawing.Point(385, 247);
+            this.AddNewBTN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddNewBTN.Location = new System.Drawing.Point(385, 224);
             this.AddNewBTN.Name = "AddNewBTN";
             this.AddNewBTN.Size = new System.Drawing.Size(143, 55);
             this.AddNewBTN.TabIndex = 3;
@@ -234,6 +271,8 @@
             // 
             // BrowsAddressBTN
             // 
+            this.BrowsAddressBTN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BrowsAddressBTN.Location = new System.Drawing.Point(444, 41);
             this.BrowsAddressBTN.Name = "BrowsAddressBTN";
             this.BrowsAddressBTN.Size = new System.Drawing.Size(109, 32);
@@ -253,6 +292,8 @@
             // 
             // AdressTextBox
             // 
+            this.AdressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AdressTextBox.BackColor = System.Drawing.Color.Black;
             this.AdressTextBox.ForeColor = System.Drawing.Color.White;
             this.AdressTextBox.Location = new System.Drawing.Point(6, 41);
@@ -262,20 +303,55 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.CountCommandLabel);
-            this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.DeleteAllBTN);
             this.tabPage3.Controls.Add(this.SearchNameTextBox);
             this.tabPage3.Controls.Add(this.BookCommandListBox);
-            this.tabPage3.Controls.Add(this.PreviewAddressTextbox);
             this.tabPage3.Controls.Add(this.DeleteCommandBTN);
+            this.tabPage3.Controls.Add(this.CountCommandLabel);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.PreviewAddressTextbox);
+            this.tabPage3.Controls.Add(this.DeleteAllBTN);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(559, 336);
+            this.tabPage3.Size = new System.Drawing.Size(559, 244);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Book";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // SearchNameTextBox
+            // 
+            this.SearchNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SearchNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchNameTextBox.Location = new System.Drawing.Point(302, 60);
+            this.SearchNameTextBox.Name = "SearchNameTextBox";
+            this.SearchNameTextBox.Size = new System.Drawing.Size(254, 29);
+            this.SearchNameTextBox.TabIndex = 3;
+            this.SearchNameTextBox.TextChanged += new System.EventHandler(this.SearchNameTextBox_TextChanged);
+            // 
+            // BookCommandListBox
+            // 
+            this.BookCommandListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BookCommandListBox.FormattingEnabled = true;
+            this.BookCommandListBox.ItemHeight = 25;
+            this.BookCommandListBox.Location = new System.Drawing.Point(3, 29);
+            this.BookCommandListBox.Name = "BookCommandListBox";
+            this.BookCommandListBox.Size = new System.Drawing.Size(293, 204);
+            this.BookCommandListBox.TabIndex = 2;
+            this.BookCommandListBox.SelectedIndexChanged += new System.EventHandler(this.BookCommandListBox_SelectedIndexChanged);
+            // 
+            // DeleteCommandBTN
+            // 
+            this.DeleteCommandBTN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteCommandBTN.Location = new System.Drawing.Point(302, 95);
+            this.DeleteCommandBTN.Name = "DeleteCommandBTN";
+            this.DeleteCommandBTN.Size = new System.Drawing.Size(254, 52);
+            this.DeleteCommandBTN.TabIndex = 0;
+            this.DeleteCommandBTN.Text = "Delete";
+            this.DeleteCommandBTN.UseVisualStyleBackColor = true;
+            this.DeleteCommandBTN.Click += new System.EventHandler(this.DeleteCommandBTN_Click);
             // 
             // CountCommandLabel
             // 
@@ -294,40 +370,10 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Count:";
             // 
-            // DeleteAllBTN
-            // 
-            this.DeleteAllBTN.Location = new System.Drawing.Point(302, 268);
-            this.DeleteAllBTN.Name = "DeleteAllBTN";
-            this.DeleteAllBTN.Size = new System.Drawing.Size(254, 52);
-            this.DeleteAllBTN.TabIndex = 4;
-            this.DeleteAllBTN.Text = "Delete All";
-            this.DeleteAllBTN.UseVisualStyleBackColor = true;
-            this.DeleteAllBTN.Click += new System.EventHandler(this.DeleteAllBTN_Click);
-            // 
-            // SearchNameTextBox
-            // 
-            this.SearchNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.SearchNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchNameTextBox.Location = new System.Drawing.Point(302, 60);
-            this.SearchNameTextBox.Name = "SearchNameTextBox";
-            this.SearchNameTextBox.Size = new System.Drawing.Size(254, 29);
-            this.SearchNameTextBox.TabIndex = 3;
-            this.SearchNameTextBox.TextChanged += new System.EventHandler(this.SearchNameTextBox_TextChanged);
-            this.SearchNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchNameTextBox_KeyPress);
-            this.SearchNameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchNameTextBox_KeyUp);
-            // 
-            // BookCommandListBox
-            // 
-            this.BookCommandListBox.FormattingEnabled = true;
-            this.BookCommandListBox.ItemHeight = 25;
-            this.BookCommandListBox.Location = new System.Drawing.Point(3, 29);
-            this.BookCommandListBox.Name = "BookCommandListBox";
-            this.BookCommandListBox.Size = new System.Drawing.Size(293, 304);
-            this.BookCommandListBox.TabIndex = 2;
-            this.BookCommandListBox.SelectedIndexChanged += new System.EventHandler(this.BookCommandListBox_SelectedIndexChanged);
-            // 
             // PreviewAddressTextbox
             // 
+            this.PreviewAddressTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PreviewAddressTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.PreviewAddressTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PreviewAddressTextbox.Location = new System.Drawing.Point(3, 3);
@@ -335,49 +381,18 @@
             this.PreviewAddressTextbox.ReadOnly = true;
             this.PreviewAddressTextbox.Size = new System.Drawing.Size(553, 23);
             this.PreviewAddressTextbox.TabIndex = 1;
-            this.PreviewAddressTextbox.TextChanged += new System.EventHandler(this.PreviewAddressTextbox_TextChanged);
             // 
-            // DeleteCommandBTN
+            // DeleteAllBTN
             // 
-            this.DeleteCommandBTN.Location = new System.Drawing.Point(302, 95);
-            this.DeleteCommandBTN.Name = "DeleteCommandBTN";
-            this.DeleteCommandBTN.Size = new System.Drawing.Size(254, 52);
-            this.DeleteCommandBTN.TabIndex = 0;
-            this.DeleteCommandBTN.Text = "Delete";
-            this.DeleteCommandBTN.UseVisualStyleBackColor = true;
-            this.DeleteCommandBTN.Click += new System.EventHandler(this.DeleteCommandBTN_Click);
-            // 
-            // LogLabel
-            // 
-            this.LogLabel.AutoSize = true;
-            this.LogLabel.BackColor = System.Drawing.Color.White;
-            this.LogLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogLabel.ForeColor = System.Drawing.Color.Black;
-            this.LogLabel.Location = new System.Drawing.Point(12, 492);
-            this.LogLabel.Name = "LogLabel";
-            this.LogLabel.Size = new System.Drawing.Size(0, 20);
-            this.LogLabel.TabIndex = 1;
-            // 
-            // TerminalLine
-            // 
-            this.TerminalLine.BackColor = System.Drawing.Color.Black;
-            this.TerminalLine.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TerminalLine.ForeColor = System.Drawing.Color.White;
-            this.TerminalLine.Location = new System.Drawing.Point(12, 71);
-            this.TerminalLine.Name = "TerminalLine";
-            this.TerminalLine.Size = new System.Drawing.Size(567, 38);
-            this.TerminalLine.TabIndex = 0;
-            this.TerminalLine.TextChanged += new System.EventHandler(this.TerminalLine_TextChanged);
-            this.TerminalLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TerminalLine_KeyDown);
-            // 
-            // autoCompletePanel
-            // 
-            this.autoCompletePanel.BackColor = System.Drawing.Color.Transparent;
-            this.autoCompletePanel.Location = new System.Drawing.Point(13, 104);
-            this.autoCompletePanel.Name = "autoCompletePanel";
-            this.autoCompletePanel.Size = new System.Drawing.Size(194, 270);
-            this.autoCompletePanel.TabIndex = 8;
-            this.autoCompletePanel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.autoCompletePanel_KeyPress);
+            this.DeleteAllBTN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteAllBTN.Location = new System.Drawing.Point(302, 189);
+            this.DeleteAllBTN.Name = "DeleteAllBTN";
+            this.DeleteAllBTN.Size = new System.Drawing.Size(254, 52);
+            this.DeleteAllBTN.TabIndex = 4;
+            this.DeleteAllBTN.Text = "Delete All";
+            this.DeleteAllBTN.UseVisualStyleBackColor = true;
+            this.DeleteAllBTN.Click += new System.EventHandler(this.DeleteAllBTN_Click);
             // 
             // MainForm
             // 
@@ -385,7 +400,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(591, 521);
+            this.ClientSize = new System.Drawing.Size(591, 406);
             this.ControlBox = false;
             this.Controls.Add(this.MinimizeBTN);
             this.Controls.Add(this.Info);
@@ -395,18 +410,18 @@
             this.Controls.Add(this.ExitBTN);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.PanNorth;
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximumSize = this.Size;
+            this.MinimumSize = new System.Drawing.Size(607, 180);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Onee-Chan";
-            this.Activated += new System.EventHandler(this.MainForm_Activated);
-            this.Load += new System.EventHandler(this.FormLoad);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainFormKeyPress);
-            this.Resize += new System.EventHandler(this.MainFormResize);
+            this.Load += new System.EventHandler(this.START__FormLoad);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.PanelControl.ResumeLayout(false);
+            this.PaperPanel.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -427,7 +442,7 @@
         public System.Windows.Forms.Label LogLabel;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        public System.Windows.Forms.TabControl PanelControl;
+        public System.Windows.Forms.TabControl PaperPanel;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button AddNewBTN;
         private System.Windows.Forms.Button BrowsAddressBTN;

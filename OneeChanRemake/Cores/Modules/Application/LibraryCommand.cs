@@ -87,6 +87,7 @@ namespace OneeChanRemake.Application
                 Commandmanager.UpdateCommand(new UserCommand(olddata.Name, value, olddata.CommandType));
             }
         }
+
         /// <summary>
         /// دستورات موجود شبیه به اسم داده شده را برمیگرداند.
         /// تکنیک پیدا کردن دستورات مشابه شروع با کلمات است.
